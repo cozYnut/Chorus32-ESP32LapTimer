@@ -151,6 +151,8 @@ void setup() {
     delayMicroseconds(MIN_TUNE_TIME_US);
   }
 
+  beeper_add_to_queue(); // beep once at the beginning to know its working 
+
   init_outputs();
   Serial.println("Starting ADC reading task on core 0");
 
