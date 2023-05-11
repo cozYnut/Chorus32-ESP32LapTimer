@@ -1,17 +1,19 @@
 # Chorus32-ESP32Laptimer
 
 Some notes on using this fork:
- * Bluetooth is enabled by default, so you'll need to change the partition scheme to "HUGE APP" or something similar, so the sketch fits
- * Currently the initial power state of the modules is off, if the voltage reading is below 6V (this is to protect my already weak USB-Port during developement with multiple modules)
- * The module will always report 8 pilots. If the number of activated pilots is greater than the number of modules, multiplexing is enabled. If the number is lower the unsused modules are powered down. You can disable multiplexing for specific pilots on the settings page
- * EEPROM will be saved after a max of 10 sec
- * I'll regularly rebase and force push this branch ;)
+ * this is being tested only on the PCB made by Aaronss https://github.com/Aaronsss/Chorus32-ESP32LapTimer/blob/master/pcb/AaronSmith/PCB%20V2
+ * with 4 RX5808 Modules in position 1,2,3,4.
+ * please dotn use this as a base project this might be broken. 
 
-This fork adds (mostly backend):
+
+the base is: https://github.com/cruwaller/Chorus32-ESP32LapTimer.git Dev branch
+The base fork adds (mostly backend):
  * Mutliplexing modules. Reduces the accuracy, but is the only option if you want to go cheap and small
+ * The module will always report 8 pilots. If the number of activated pilots is greater than the number of modules, multiplexing is enabled. If the number is lower the unsused modules are powered down. You can disable multiplexing for specific pilots on the settings page
  * OLED page with lap times
+ * EEPROM will be saved after a max of 10 sec
  * Support for LoRa
- * Support for using a TCP connection. This should improve the connection quality (needs my fork of the app)
+ * Support for using a TCP connection. This should improve the connection quality (needs my fork of the app https://github.com/Smeat/Chorus-RF-Laptimer/releases/tag/tcp_support)
  * Some other changes I don't remember
  * Almost entirely usable without the app. Navigate to http://192.168.4.1/laptimes.html for in browser lap times. If your system supports text to speech the lap times will be spoken (for Linux speech-dispacher is responsible. You can test it with "spd-say 'hello world'")
  * Currently testing new peak detection method. See the wiki for some test results.
